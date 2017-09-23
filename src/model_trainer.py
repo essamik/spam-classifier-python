@@ -25,12 +25,12 @@ def evaluate_model(classifier_model):
     X = data_train['X']
     y = data_train['y'].ravel()
 
-    print('Evaluating the trained Linear SVM on the training set ...')
+    print('\nEvaluating the trained Linear SVM on the training set ...')
     predictions = classifier_model.predict(X)
     score = np.mean(predictions == y)
     print('Score on training dataset: ', score * 100, '%')
 
-    print('Evaluating the trained Linear SVM on a test set ...')
+    print('\nEvaluating the trained Linear SVM on a test set ...')
 
     data_test = loadmat('../res/spamTest.mat')
     X_test = data_test['Xtest']

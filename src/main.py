@@ -13,6 +13,7 @@ with open('../res/email_spam.txt') as f:
 example_false = mail_to_features.preprocess_mail(content_nonspam)
 example_true = mail_to_features.preprocess_mail(content_spam)
 
+print('\nPrediction on some test mails from the resources')
 # Input has to be an array of feature vectors
 predictions = model.predict([example_false, example_true])
 print('NonSpam email is : ', predictions[0])

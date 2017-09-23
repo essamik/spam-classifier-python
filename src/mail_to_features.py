@@ -2,8 +2,7 @@ from src import text_normalizer
 import numpy as np
 
 
-def preprocess_mail(mail='Hi this is some <b>SPAM</b> click here to get filthy RICH $$$. Testing the stemming '
-                                'functionality'):
+def preprocess_mail(mail):
     # 1. Preprocess mail
     words = text_normalizer.normalize(mail)
 
