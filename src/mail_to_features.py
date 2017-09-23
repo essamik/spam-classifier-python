@@ -6,15 +6,12 @@ def preprocess_mail(mail='Hi this is some <b>SPAM</b> click here to get filthy R
                                 'functionality'):
     # 1. Preprocess mail
     words = text_normalizer.normalize(mail)
-    #print(words)
 
     # 2. Numerize
     word_indices = map_to_voc_indices(words)
-    #print(word_indices)
 
     # 3. Features vectorize
     features = extract_features(word_indices)
-    #print(features)
 
     return features
 

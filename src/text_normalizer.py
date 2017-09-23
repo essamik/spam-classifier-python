@@ -3,7 +3,7 @@ from stemming.porter2 import stem
 
 
 def normalize(mail):
-    # ********* Normalization *********
+    # ********* Normalization / Data Cleaning *********
     mail = mail.lower()
     mail = re.sub('<[^<>]+>', '', mail)
     mail = re.sub('[0-9]+', 'number', mail)
