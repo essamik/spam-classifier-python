@@ -1,8 +1,11 @@
 from os.path import dirname as dn, join as jp
+import logging
 
 from scipy.io import loadmat
 from sklearn import svm
 import numpy as np
+
+log = logging.getLogger('spamclassifier.model_trainer')
 
 
 def train_svm():
@@ -12,11 +15,11 @@ def train_svm():
     y = data_train['y'].ravel()
 
     # 2. Train a linear SVM model
-    print('Start training the Linear SVM classifier model with', len(y), 'entries...')
+    log.info('Start training the Linear SVM classifier model with %d entries...', len(y))
     classifier_model = svm.LinearSVC()
     classifier_model.fit(X, y)
 
-    print('Training done !')
+    log.info('Training done !')
     evaluate_model(classifier_model)
 
     return classifier_model
@@ -27,12 +30,12 @@ def evaluate_model(classifier_model):
     X = data_train['X']
     y = data_train['y'].ravel()
 
-    print('\nEvaluating the trained Linear SVM on the training set ...')
+    log.info('Evaluating the trained Linear SVM on the training set ...')
     predictions = classifier_model.predict(X)
     score = np.mean(predictions == y)
-    print('Score on training dataset: ', score * 100, '%')
+    log.info('Score on training dataset: %.3f%%', score * 100.0)
 
-    print('\nEvaluating the trained Linear SVM on a test set ...')
+    log.info('Evaluating the trained Linear SVM on a test set ...')
 
     data_test = loadmat(jp(dn(__file__), 'data', 'spamTest.mat'))
     X_test = data_test['Xtest']
@@ -40,4 +43,4 @@ def evaluate_model(classifier_model):
 
     predictions = classifier_model.predict(X_test)
     score = np.mean(predictions == y_test)
-    print('Score on test dataset: ', score * 100, '%')
+    log.info('Score on test dataset: %.3f%%', score * 100)
