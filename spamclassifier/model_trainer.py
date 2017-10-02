@@ -1,3 +1,5 @@
+from os.path import dirname as dn, join as jp
+
 from scipy.io import loadmat
 from sklearn import svm
 import numpy as np
@@ -5,7 +7,7 @@ import numpy as np
 
 def train_svm():
     # 1. Load the feature vectors of 4000 labeled mails
-    data_train = loadmat('../res/spamTrain.mat')
+    data_train = loadmat(jp(dn(__file__), 'data', 'spamTrain.mat'))
     X = data_train['X']
     y = data_train['y'].ravel()
 
@@ -21,7 +23,7 @@ def train_svm():
 
 
 def evaluate_model(classifier_model):
-    data_train = loadmat('../res/spamTrain.mat')
+    data_train = loadmat(jp(dn(__file__), 'data', 'spamTrain.mat'))
     X = data_train['X']
     y = data_train['y'].ravel()
 
@@ -32,7 +34,7 @@ def evaluate_model(classifier_model):
 
     print('\nEvaluating the trained Linear SVM on a test set ...')
 
-    data_test = loadmat('../res/spamTest.mat')
+    data_test = loadmat(jp(dn(__file__), 'data', 'spamTest.mat'))
     X_test = data_test['Xtest']
     y_test = data_test['ytest'].ravel()
 

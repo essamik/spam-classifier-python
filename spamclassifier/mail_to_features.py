@@ -1,10 +1,13 @@
-from src import text_normalizer
+from os.path import dirname as dn, join as jp
+
 import numpy as np
+
+from .text_normalizer import normalize
 
 
 def preprocess_mail(mail):
     # 1. Preprocess mail
-    words = text_normalizer.normalize(mail)
+    words = normalize(mail)
 
     # 2. Numerize
     word_indices = map_to_voc_indices(words)
@@ -16,9 +19,8 @@ def preprocess_mail(mail):
 
 
 def map_to_voc_indices(words):
-    filename = '../res/vocab.txt'
     word_indices = []
-    with open(filename) as f:
+    with open(jp(dn(__file__), 'data', 'vocab.txt')) as f:
         vocab_list = f.read().splitlines()
         for word in words:
             if word in vocab_list:

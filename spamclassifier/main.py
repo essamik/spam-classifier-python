@@ -1,8 +1,8 @@
-from src import model_trainer, mail_to_features
-
+from .model_trainer import train_svm
+from .mail_to_features import preprocess_mail
 
 # Get them modlz
-model = model_trainer.train_svm()
+model = train_svm()
 
 # Test with a sample spam and a sample non spam mail
 with open('../res/email_nonspam.txt') as f:
@@ -10,8 +10,8 @@ with open('../res/email_nonspam.txt') as f:
 with open('../res/email_spam.txt') as f:
     content_spam = f.read()
 
-example_false = mail_to_features.preprocess_mail(content_nonspam)
-example_true = mail_to_features.preprocess_mail(content_spam)
+example_false = preprocess_mail(content_nonspam)
+example_true = preprocess_mail(content_spam)
 
 print('\nPrediction on some test mails from the resources')
 # Input has to be an array of feature vectors
