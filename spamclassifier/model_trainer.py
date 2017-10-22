@@ -1,11 +1,19 @@
 from os.path import dirname as dn, join as jp
 import logging
+import sys
 
 from scipy.io import loadmat
 from sklearn import svm
 import numpy as np
 
 log = logging.getLogger('spamclassifier.model_trainer')
+log.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler(sys.stdout)
+ch.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+log.addHandler(ch)
 
 
 def train_svm():
