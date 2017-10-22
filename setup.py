@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 config = {
-    'name': 'spamclassifier',
-    'description': 'A working example of a spam classifier',
+    'name': 'spamclassifier-python',
+    'description': 'A working example of a small spam classifier based on the ML Coursera lesson',
     'author': 'Karim Es-Sami, Julien Wolflisberg',
     'version': '0.1a',
     'install_requires': [
