@@ -1,19 +1,8 @@
 import unittest
-import logging
-import sys
 from os.path import dirname as dn, join as jp
 
 from spamclassifier.model_trainer import train_svm
 from spamclassifier.mail_to_features import preprocess_mail
-
-log = logging.getLogger('spamclassifier')
-log.setLevel(logging.DEBUG)
-
-ch = logging.StreamHandler(sys.stdout)
-ch.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-log.addHandler(ch)
 
 
 class TestSpamClassifier(unittest.TestCase):
