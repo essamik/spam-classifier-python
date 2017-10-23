@@ -19,8 +19,8 @@ class TestSpamClassifier(unittest.TestCase):
                      preprocess_mail(content_spam)]
 
         predictions = model.predict(test_data)
-        self.assertEquals(predictions[0], 0)  # First is not a spam
-        self.assertEquals(predictions[1], 1)  # Second one IS a spam
+        self.assertEqual(predictions[0], 0)  # First is not a spam
+        self.assertEqual(predictions[1], 1)  # Second one IS a spam
 
 
 if __name__ == '__main__':
