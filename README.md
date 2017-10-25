@@ -15,7 +15,7 @@ The code is separated in 3 files:
 * stemming
 
 ## Deployment & Installation
-* Install the requirements with `pip install -r requirements.txt`
+* Install the requirements with `pip install`
 
 ### Prerequisites
 * Python 2 (work also with Python 3)
