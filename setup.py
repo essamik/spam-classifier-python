@@ -27,11 +27,6 @@ config = {
     },
     'test_suite': 'nose.collector',
     'packages': find_packages(),
-    'entry_points': {
-        'console_scripts': [
-            'spamclassifier=spamclassifier:main',
-        ],
-    },
 }
 
 setup(**config)
