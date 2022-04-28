@@ -2,7 +2,7 @@ import re
 from stemming.porter2 import stem
 
 
-def normalize(mail):
+def normalize(mail: str) -> [str]:
     # ********* Normalization / Data Cleaning *********
     mail = mail.lower()
     mail = mail.replace('\n', ' ')

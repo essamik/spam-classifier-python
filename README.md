@@ -18,8 +18,7 @@ The code is separated in 3 files:
 * Install the requirements with `pip install`
 
 ### Prerequisites
-* Python 2 (work also with Python 3)
+* Python 3
 
-### Tests
-* First install the test requirements `pip install .[dev]`
-* Then run the tests `nosetests -l spamclassifier` command from the root folder of the project.
+### Run
+From the CLI: `python .\spamclassifier\main.py`
