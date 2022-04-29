@@ -1,4 +1,4 @@
-from os.path import dirname as dn, join as jp
+from pathlib import Path
 
 import numpy as np
 
@@ -20,7 +20,8 @@ def preprocess_mail(text: str) -> []:
 
 def map_to_voc_indices(words: [str]) -> [int]:
     word_indices = []
-    with open(jp(dn(__file__), 'data', 'dataset', 'vocab.txt')) as f:
+    path_voc = Path(__file__) / '../data/dataset/vocab.txt'
+    with path_voc.open() as f:
         vocab_list = f.read().splitlines()
         # TODO Map your words to their indices in vocab_list (if an indice exists for your word)
         raise NotImplementedError

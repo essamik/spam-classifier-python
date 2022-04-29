@@ -1,5 +1,5 @@
 import logging
-from os.path import dirname as dn, join as jp
+from pathlib import Path
 
 from spamclassifier.model_trainer import train_svm
 
@@ -9,9 +9,12 @@ logging.basicConfig(level=logging.INFO)
 def train_run():
     model = train_svm()
 
-    with open(jp(dn(__file__), 'data', 'test', 'email_nonspam.txt')) as f:
+    path_nonspam = Path(__file__) / '../data/test/email_nonspam.txt'
+    with path_nonspam.open() as f:
         content_nonspam = f.read()
-    with open(jp(dn(__file__), 'data', 'test', 'email_spam.txt')) as f:
+
+    path_spam = Path(__file__) / '../data/test/email_spam.txt'
+    with path_spam.open() as f:
         content_spam = f.read()
 
     # TODO Preprocess both your email body
