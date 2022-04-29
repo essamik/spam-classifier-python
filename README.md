@@ -15,6 +15,8 @@ The code is separated in 3 files:
 * stemming
 
 ## Deployment & Installation
+* Create your own virtual environment: `python -m venv venv`
+* Activate it `.\venv\Scripts\activate`
 * Install the requirements with `pip install`
 
 ### Prerequisites
