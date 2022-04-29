@@ -2,20 +2,20 @@ import re
 from stemming.porter2 import stem
 
 
-def normalize(mail: str) -> [str]:
+def normalize_text(text: str) -> [str]:
     # ********* Normalization / Data Cleaning *********
-    mail = mail.lower()
-    mail = mail.replace('\n', ' ')
-    mail = re.sub('<[^<>]+>', '', mail)
-    mail = re.sub('[0-9]+', 'number', mail)
-    mail = re.sub('(http|https)://[^\s]*', 'httpaddr', mail)
-    mail = re.sub('[^\s]+@[^\s]+', 'emailaddr', mail)
-    mail = re.sub('[$]+', 'dollar', mail)
+    text = text.lower()
+    text = text.replace('\n', ' ')
+    text = re.sub('<[^<>]+>', '', text)
+    text = re.sub('[0-9]+', 'number', text)
+    text = re.sub('(http|https)://[^\s]*', 'httpaddr', text)
+    text = re.sub('[^\s]+@[^\s]+', 'emailaddr', text)
+    text = re.sub('[$]+', 'dollar', text)
 
     # ********* Tokenization and Stemming *********
     cleaned_words = []
-    if mail:
-        words = re.split('[ @$/#.-:$*+=?!(){},\'">_<;%]', mail)
+    if text:
+        words = re.split('[ @$/#.-:$*+=?!(){},\'">_<;%]', text)
         for word in words:
             if word and ' ' not in word:
                 word = re.sub('[^a-zA-Z0-9]', '', word)
